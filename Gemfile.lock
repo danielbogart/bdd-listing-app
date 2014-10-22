@@ -240,6 +240,7 @@ DEPENDENCIES
   less-rails-bootstrap
   mysql2
   rails (= 4.1.4)
+  rspec-collection_matchers
   rspec-rails (~> 2.0)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
