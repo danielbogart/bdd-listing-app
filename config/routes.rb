@@ -1,10 +1,24 @@
 Rails.application.routes.draw do
+  get 'offices/show'
+
+  get 'sessions/new'
+
+  get 'users/new'
+
   get 'searches/show'
 
   get 'home/index'
   root :to => 'home#index'
 
   resource :search
+
+  resources :users  
+
+  resource :session
+  
+  resource :office
+  
+  get "activate/:code" => "users#activate", :as => "activate"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

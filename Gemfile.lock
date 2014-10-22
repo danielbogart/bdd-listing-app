@@ -29,6 +29,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
+    bcrypt (3.1.7)
     builder (3.2.2)
     capybara (2.0.3)
       mime-types (>= 1.16)
@@ -51,6 +52,9 @@ GEM
     coffee-script-source (1.8.0)
     commonjs (0.2.7)
     diff-lcs (1.2.5)
+    email_spec (1.6.0)
+      launchy (~> 2.1)
+      mail (~> 2.2)
     erubis (2.7.0)
     execjs (2.2.1)
     factory_girl (4.4.0)
@@ -222,8 +226,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   capybara (~> 2.0.2)
   coffee-rails (~> 4.0.0)
+  email_spec
   factory_girl_rails (~> 4.0)
   growl
   guard

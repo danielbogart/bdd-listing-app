@@ -3,6 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rspec'
+require 'email_spec'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -19,6 +20,12 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
 
+  config.include(EmailSpec::Helpers)
+  config.include(EmailSpec::Matchers)
+
+  # Adds custom user helper functions
+  config.include(UserHelper)
+
   config.before(:suite) do
     ThinkingSphinx::Test.init
     ThinkingSphinx::Test.start_with_autostop
@@ -30,6 +37,7 @@ RSpec.configure do |config|
 
   config.after(:each) do
     Property.delete_all
+    User.delete_all
   end
   # ## Mock Framework
   #

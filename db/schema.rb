@@ -11,13 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141012195226) do
+ActiveRecord::Schema.define(version: 20141022161238) do
 
   create_table "properties", force: true do |t|
     t.string   "title"
     t.text     "description"
     t.decimal  "price",       precision: 10, scale: 0
     t.string   "city_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "name"
+    t.boolean  "is_admin"
+    t.string   "role"
+    t.string   "activation_code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
